@@ -73,3 +73,36 @@
     <td>249999</td>
   </tr>
 </table>
+
+<h3> Sequential solution complexity analysis </h3>
+
+<p>Our queue is a <b>PriorityQueue</b> which is using a heap for storing the sorted nodes based<br>
+on the edge weight</p>. 
+<p>Such, for queue.add(node) and queue.remove() (getting the first element in the queue)<br>
+we have a time complexity of O(logN) where N is the number of elements currently in the queue<br>
+<p>To update the minimum distance for a single edge will be O(logN) (from queue.add) and we have<br>
+a total of M edges -> O(MlogN) to update all edges</p>
+<p>Finally since at each step we retrieve a node (with queue.remove) we have O(logN) for that<br>
+and there areN nodes -> O(NlogN)</p>
+
+<p>Putting these operations together will result in a total complexity of O(NlogN + MlogN) = O((N+M)logN)</p>
+
+```
+fun determineShortestPathsSequential(): List<Int> {
+    val queue = initQueue()
+    ...
+    queue.add(Edge(STARTING_NODE, STARTING_NODE, 0))
+    while (queue.isNotEmpty()) {
+            node = queue.remove().nodeB
+            graph[node]?.let {
+                (0 until it.size).forEach { position ->
+                    ...
+                    if (distances[currentVertexInPath] > distances[node] + edgeWeight) {
+                        ...
+                        queue.add(Edge(node, currentVertexInPath, distances[currentVertexInPath]))
+                    }
+                }
+            }
+        }
+}
+```
