@@ -19,12 +19,13 @@ and there areN nodes -> O(NlogN).</p>
 <p>And since we do this for each node we get O(N*(N+M)logN)</p>
 
 ```
-fun determineShortestPathsSequential(): List<Int> {
+fun determineShortestPath(target: Int): List<Int> {
     val queue = initQueue()
     ...
     queue.add(Edge(STARTING_NODE, STARTING_NODE, 0))
     while (queue.isNotEmpty()) {
             node = queue.remove().nodeB
+            if(node == target) return distances[target]
             graph[node]?.let {
                 (0 until it.size).forEach { position ->
                     ...
