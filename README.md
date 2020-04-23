@@ -16,6 +16,7 @@ a total of M edges -> O(MlogN) to update all edges.</p>
 and there areN nodes -> O(NlogN).</p>
 
 <p>Putting these operations together will result in a total complexity of O(NlogN + MlogN) = O((N+M)logN).</p>
+<p>And since we do this for each node we get O(N*(N+M)logN)</p>
 
 ```
 fun determineShortestPathsSequential(): List<Int> {
@@ -60,50 +61,26 @@ fun determineShortestPathsSequential(): List<Int> {
   </tr>
   <tr>
     <td>3</td>
-    <td>5ms</td>
+    <td>210ms</td>
     <td>712</td>
     <td>1621</td>
   </tr>
   <tr>
     <td>4</td>
-    <td>3ms</td>
+    <td>163ms</td>
     <td>1000</td>
     <td>2451</td>
   </tr>
   <tr>
     <td>5</td>
-    <td>49m</td>
+    <td>19459ms</td>
     <td>10421</td>
     <td>21313</td>
   </tr>
   <tr>
     <td>6</td>
-    <td>59ms</td>
+    <td>73153ms</td>
     <td>16421</td>
     <td>41012</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>34ms</td>
-    <td>30193</td>
-    <td>51201</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>31472ms</td>
-    <td>50000</td>
-    <td>140006</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>44ms</td>
-    <td>50000</td>
-    <td>74899</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>130ms</td>
-    <td>50000</td>
-    <td>249999</td>
   </tr>
 </table>
