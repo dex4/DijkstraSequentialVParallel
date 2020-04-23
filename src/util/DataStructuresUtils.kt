@@ -6,8 +6,17 @@ import kotlin.Comparator
 
 fun trimResult(finalDistances: MutableList<Int>): List<Int> =
     finalDistances.apply {
-        finalDistances.removeAt(0)
-        finalDistances.removeAt(0)
+//        finalDistances.removeAt(0)
+//        finalDistances.removeAt(0)
+        finalDistances.forEachIndexed { index, distance ->
+            if (distance == Int.MAX_VALUE) {
+                finalDistances[index] = 0
+            }
+        }
+    }
+
+fun trimResultNoAddition(finalDistances: MutableList<Int>): List<Int> =
+    finalDistances.apply {
         finalDistances.forEachIndexed { index, distance ->
             if (distance == Int.MAX_VALUE) {
                 finalDistances[index] = 0
