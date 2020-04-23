@@ -1,0 +1,52 @@
+@startuml
+
+interface RMIInterface extends Remote {
+    String helloTo(String name) throws RemoteException
+}
+
+class ServerOperation extends UnicastRemoteObject implements RMIInterface {
+    ServerOperation() throws RemoteException
+    Pair<GraphData, List<Integer>> giveWork() throws RemoteException
+    List<Integer> getDistances() throws RemoteException
+    void main(String[] args)
+}
+class ClientOperation {
+    RMIInterface look_up
+    void solve(GraphData graph, List<Integer> nodes)
+    void main(String[] args) throws MalformedURLException, RemoteException, NotBoundException
+}
+class DataStructureUtils {
+    trimResult(finalDistances: MutableList<Int>): List<Int>
+    trimResultNoAddition(finalDistances: MutableList<Int>): List<Int>
+     initDistances(nodesCount: Int): MutableList<Int>
+     initQueue(): PriorityQueue<Edge>
+}
+
+class SolutionUtils {
+    SolutionUtils(fileNumber: String)
+     private val outputFile: String
+     private val inputFile: String
+     private var actualSolution: List<Int>
+
+     checkSolution(computedSolution: List<Int>): Boolean
+     getSolution(): List<Int>
+     readGraphData(): GraphData
+}
+
+class Edge {
+    Edge(nodeA: Int, nodeB: Int, cost:Int)
+    val nodeA: Int
+    val nodeB: Int
+    val cost: Int
+}
+
+class GraphData {
+    GraphData(nodesCount: Int, edgesCount: Int, graph: HashMap<Int, MutableList<Pair<Int, Int>>>)
+    val nodesCount: Int,
+    val edgesCount: Int,
+    val graph: HashMap<Int, MutableList<Pair<Int, Int>>>
+}
+
+file Main.kt {
+}
+@enduml
