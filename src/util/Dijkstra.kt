@@ -1,7 +1,7 @@
+@file:JvmName("util.Dijkstra")
+
+package util
 import model.Edge
-import util.initDistances
-import util.initQueue
-import util.trimResult
 
 class Dijkstra(
     private val nodesCount: Int,
@@ -40,7 +40,7 @@ class Dijkstra(
         while (queue.isNotEmpty()) {
             node = queue.remove().nodeB
             if (node == target) {
-                distances[target]
+                return distances[target]
             }
             graph[node]?.let {
                 (0 until it.size).forEach { position ->

@@ -1,5 +1,5 @@
+import util.Dijkstra
 import util.SolutionUtils
-import util.trimResult
 import util.trimResultNoAddition
 import java.time.Instant
 
@@ -7,7 +7,7 @@ fun main() {
 //    (1..10).forEach {
 //        val solutionUtils = SolutionUtils(it.toString())
 //        val graphData = solutionUtils.readGraphData()
-//        val dijkstra = Dijkstra(graphData.nodesCount, graphData.graph)
+//        val dijkstra = util.Dijkstra(graphData.nodesCount, graphData.graph)
 //        val startTime = Instant.now()
 //        val mySolution = dijkstra.determineShortestPathsSequential()
 //        val finishTime = Instant.now()

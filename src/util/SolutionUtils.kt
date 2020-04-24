@@ -1,3 +1,4 @@
+@file:JvmName("util.SolutionUtils")
 package util
 
 import model.GraphData
