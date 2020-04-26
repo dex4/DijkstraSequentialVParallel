@@ -17,7 +17,7 @@ fun main() {
 //            )
 //        println("Test $it passed: $isSolutionValid \n Algorithm ran in: ${finishTime.toEpochMilli() - startTime.toEpochMilli()}ms")
 //    }
-    (1..6).forEach {
+    (7..7).forEach {
         val solutionUtils = SolutionUtils(it.toString())
         val graphData = solutionUtils.readGraphData()
         val dijkstra = Dijkstra(graphData.nodesCount, graphData.graph)

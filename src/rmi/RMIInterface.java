@@ -12,5 +12,5 @@ public interface RMIInterface extends Remote {
 
     public Pair<HashMap<Integer, List<Pair<Integer, Integer>>>, Triple<Integer, Integer, Integer>> helloTo(String name) throws RemoteException;
 
-    public void returnDistances(List<Integer> distances) throws RemoteException;
+    public void returnDistances(Pair<Long,List<Integer>> distances) throws RemoteException;
 }
